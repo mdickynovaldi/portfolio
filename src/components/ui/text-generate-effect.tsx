@@ -17,7 +17,7 @@ export const TextGenerateEffect = ({
   start?: boolean;
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
   useEffect(() => {
     if (start) {
       animate(
@@ -32,7 +32,7 @@ export const TextGenerateEffect = ({
         }
       );
     }
-  }, [scope.current, start]);
+  }, [scope.current, start, animate, duration, filter]);
 
   const renderWords = () => {
     return (

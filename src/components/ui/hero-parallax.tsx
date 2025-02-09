@@ -108,7 +108,7 @@ export const Header = () => {
         My <br /> Portfolio
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        I'm a software engineer with a passion for building beautiful and
+        I&apos;m a software engineer with a passion for building beautiful and
         functional products.
       </p>
     </div>
