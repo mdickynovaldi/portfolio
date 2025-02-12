@@ -61,7 +61,7 @@ export function FloatingDockHeader() {
   return (
     <div className="flex items-center justify-center w-full">
       <FloatingDock
-        mobileClassName="translate-y-12 scale-75"
+        mobileClassName=" fixed bottom-4 right-4"
         desktopClassName="fixed bottom-4 left-1/2 -translate-x-1/2"
         items={links}
       />

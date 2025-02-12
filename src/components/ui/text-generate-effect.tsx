@@ -8,18 +8,18 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 0.5,
-  start = false,
+  inView = true,
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
-  start?: boolean;
+  inView?: boolean;
 }) => {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
   useEffect(() => {
-    if (start) {
+    if (inView) {
       animate(
         "span",
         {
@@ -32,7 +32,7 @@ export const TextGenerateEffect = ({
         }
       );
     }
-  }, [scope.current, start, animate, duration, filter]);
+  }, [scope.current, animate, duration, filter, inView]);
 
   const renderWords = () => {
     return (

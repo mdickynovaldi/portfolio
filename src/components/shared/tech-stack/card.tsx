@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { motion, useInView } from "framer-motion";
 
 export function ThreeDCardDemo(props: {
   title: string;
@@ -10,6 +11,12 @@ export function ThreeDCardDemo(props: {
   image: string;
   progress?: number;
 }) {
+  const progressRef = React.useRef(null);
+  const isInView = useInView(progressRef, {
+    once: true, // Ubah menjadi true agar animasi hanya dijalankan sekali
+    margin: "0px 0px -100px 0px",
+  });
+
   return (
     <CardContainer className="inter-var w-full max-w-[300px] md:w-[350px]">
       <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] h-[350px] md:h-[400px] rounded-xl p-6 border flex flex-col">
@@ -41,16 +48,18 @@ export function ThreeDCardDemo(props: {
         </CardItem>
 
         {/* Progress Bar */}
-        <div className="flex-none">
+        <div className="flex-none" ref={progressRef}>
           <CardItem translateZ="70" className="w-full mt-4">
             <div className="flex justify-between text-xs text-neutral-600 dark:text-neutral-400 mb-1">
               <span>Skill Level</span>
               <span>{Math.min(Math.max(props.progress || 0, 0), 100)}%</span>
             </div>
             <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700">
-              <div
-                className="h-2 bg-emerald-500 rounded-full transition-all duration-300"
-                style={{ width: `${props.progress}%` }}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: isInView ? `${props.progress}%` : "0%" }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="h-2 bg-emerald-500 rounded-full"
               />
             </div>
           </CardItem>

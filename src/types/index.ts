@@ -5,3 +5,11 @@ export interface EducationEntry {
   location: string;
   gpa: number;
 }
+
+export interface PortfolioItem {
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  tech_stack: string[];
+}
