@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 
 import { educationData } from "@/data/education-data";
 import { Calendar, MapPin } from "lucide-react";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export function Education() {
   const ref = useRef(null);
