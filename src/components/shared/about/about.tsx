@@ -34,7 +34,7 @@ export default function About() {
           <div className="bg-muted/50 rounded-lg p-4 md:p-6">
             <TextGenerateEffect
               className="text-sm md:text-xl lg:text-2xl"
-              words="Hi! I'm Moch Dicky Novaldi, usually called Aldi 🚀 - a Fullstack Developer from Malang, Indonesia 🌴. With 3+ years of experience in software development, I specialize in building end-to-end web & mobile applications. Proficient in MERN Stack (MongoDB, Express, React, Node.js), React Native for mobile development, and Unity for game development. Always passionate about creating impactful and scalable technology solutions!"
+              words="Hi! I'm Moch Dicky Novaldi, usually called Aldi 🚀 - a Fullstack Developer from Malang, Indonesia 🌴. With 3+ years of experience in software development, I specialize in building end-to-end web & mobile applications. Proficient in MERN Stack (Prisma, NextJs, ReactJs, Supabase), Flutter for mobile development, and Unity for game development. Always passionate about creating impactful and scalable technology solutions!"
               inView={isInView}
             />
           </div>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import PortfolioCard from "./portfolio-card";
 import { PortfolioItem } from "@/types";
+import Link from "next/link";
 
 export function PortfolioContent({
   initialItems,
@@ -71,13 +72,16 @@ export function PortfolioContent({
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <PortfolioCard
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  thumbnail={item.thumbnail}
-                  tech_stack={item.tech_stack}
-                />
+                <Link href={`/portfolio/${item.slug}`}>
+                  <PortfolioCard
+                    id={item.id}
+                    slug={item.slug}
+                    title={item.title}
+                    description={item.description}
+                    thumbnail={item.thumbnail}
+                    tech_stack={item.tech_stack}
+                  />
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

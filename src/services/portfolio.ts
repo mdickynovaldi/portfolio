@@ -11,3 +11,17 @@ export const getPortfolioData = async () => {
   }
   return data;
 };
+
+export const getPortfolioDetail = async (slug: string) => {
+  const { data, error } = await supabase
+    .from("portfolio")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to fetch portfolio detail: ${error.message}`);
+  }
+
+  return [data];
+};

@@ -8,8 +8,11 @@ export interface EducationEntry {
 
 export interface PortfolioItem {
   id: number;
+  slug: string;
   title: string;
   description: string;
   thumbnail: string;
   tech_stack: string[];
+  demo_url?: string;
+  github_url?: string;
 }
