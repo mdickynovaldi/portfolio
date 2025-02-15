@@ -5,7 +5,6 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useI18n } from "@/lib/i18n/i18n-context";
 import { translations } from "@/lib/i18n/translations";
-import { h1 } from "framer-motion/client";
 
 export default function About() {
   const ref = useRef(null);

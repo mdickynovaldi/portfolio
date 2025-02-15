@@ -1,5 +1,3 @@
-"use server";
-
 import { Metadata } from "next";
 import { getPortfolioData } from "@/services/portfolio";
 import { PortfolioContent } from "@/components/shared/portfolio/portfolio-content";

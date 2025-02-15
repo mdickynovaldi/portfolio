@@ -1,7 +1,7 @@
 import { EducationEntry } from "@/types";
 import { useI18n } from "@/lib/i18n/i18n-context";
 
-export const educationData = () => {
+export const EducationData = () => {
   const { t } = useI18n();
 
   const data: EducationEntry[] = [

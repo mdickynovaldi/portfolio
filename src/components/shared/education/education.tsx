@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
-import { educationData } from "@/data/education-data";
+import { EducationData } from "@/data/education-data";
 import { Calendar, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n/i18n-context";
 
@@ -59,7 +59,7 @@ export function Education() {
             {t("education.title")}
           </motion.h2>
           <div className="space-y-8">
-            {educationData().map((entry, index) => (
+            {EducationData().map((entry, index) => (
               <motion.div
                 key={index}
                 custom={index}

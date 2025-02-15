@@ -6,13 +6,15 @@ import { PortfolioItem } from "@/types";
 
 // Definisikan tipe params sebagai Promise
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const portfolio: PortfolioItem = await getPortfolioDetail(params.slug);
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  const portfolio: PortfolioItem = await getPortfolioDetail(slug);
 
   return {
     title: portfolio.title,
@@ -27,6 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Halaman detail portfolio
 export default async function PortfolioDetailPage({ params }: Props) {
-  const portfolio: PortfolioItem = await getPortfolioDetail(params.slug);
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  const portfolio: PortfolioItem = await getPortfolioDetail(slug);
   return <DetailPortfolio portfolioDetail={[portfolio]} />;
 }
