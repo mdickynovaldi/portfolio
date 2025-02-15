@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useI18n } from "@/lib/i18n/i18n-context";
 export const HeroParallax = ({
   products,
 }: {
@@ -102,14 +102,14 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
+  const { t } = useI18n();
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        My <br /> Portfolio
+        {t("portfolio.title")}
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        I&apos;m a software engineer with a passion for building beautiful and
-        functional products.
+        {t("portfolio.description")}
       </p>
     </div>
   );
@@ -145,6 +145,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={product.title}
         />

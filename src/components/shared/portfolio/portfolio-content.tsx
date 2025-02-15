@@ -20,7 +20,7 @@ export function PortfolioContent({
     filter === "All"
       ? initialItems
       : initialItems.filter((item: PortfolioItem) =>
-          item.tech_stack?.includes(filter)
+          item.category.includes(filter)
         );
 
   // Membuat array unik dari semua tech stack yang ada
@@ -29,7 +29,7 @@ export function PortfolioContent({
   const tags = [
     "All",
     ...new Set(
-      initialItems.flatMap((item: PortfolioItem) => item.tech_stack || [])
+      initialItems.flatMap((item: PortfolioItem) => item.category || [])
     ),
   ];
 
@@ -80,6 +80,10 @@ export function PortfolioContent({
                     description={item.description}
                     thumbnail={item.thumbnail}
                     tech_stack={item.tech_stack}
+                    category={item.category}
+                    link={item.link}
+                    images={item.images}
+                    live_url={item.live_url}
                   />
                 </Link>
               </motion.div>

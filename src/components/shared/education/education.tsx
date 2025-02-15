@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 import { educationData } from "@/data/education-data";
 import { Calendar, MapPin } from "lucide-react";
+import { useI18n } from "@/lib/i18n/i18n-context";
 
 export function Education() {
   const ref = useRef(null);
@@ -14,7 +15,7 @@ export function Education() {
     once: false,
     margin: "-100px",
   });
-
+  const { t } = useI18n();
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -55,10 +56,10 @@ export function Education() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8"
           >
-            Education History
+            {t("education.title")}
           </motion.h2>
           <div className="space-y-8">
-            {educationData.map((entry, index) => (
+            {educationData().map((entry, index) => (
               <motion.div
                 key={index}
                 custom={index}

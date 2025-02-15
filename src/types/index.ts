@@ -11,8 +11,10 @@ export interface PortfolioItem {
   slug: string;
   title: string;
   description: string;
-  thumbnail: string;
+  category: string;
   tech_stack: string[];
-  demo_url?: string;
-  github_url?: string;
+  link: string;
+  thumbnail: string;
+  images: string[];
+  live_url: string;
 }

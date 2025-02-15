@@ -23,5 +23,5 @@ export const getPortfolioDetail = async (slug: string) => {
     throw new Error(`Failed to fetch portfolio detail: ${error.message}`);
   }
 
-  return [data];
+  return data;
 };

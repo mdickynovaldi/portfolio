@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { TimelineDemo } from "./Timeline";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-
+import { useI18n } from "@/lib/i18n/i18n-context";
 export default function Experience() {
+  const { t } = useI18n();
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: false,
@@ -46,7 +47,7 @@ export default function Experience() {
           variants={itemVariants}
           className="text-3xl font-bold text-center mb-8"
         >
-          Experience
+          {t("experience.title")}
         </motion.h2>
         <motion.div variants={itemVariants}>
           <TimelineDemo />

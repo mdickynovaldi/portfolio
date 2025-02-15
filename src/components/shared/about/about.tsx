@@ -3,10 +3,14 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Image from "next/image";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useI18n } from "@/lib/i18n/i18n-context";
+import { translations } from "@/lib/i18n/translations";
+import { h1 } from "framer-motion/client";
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { t, activeLocale } = useI18n();
 
   return (
     <section className="py-10 px-4" ref={ref}>
@@ -28,15 +32,19 @@ export default function About() {
 
             {/* Title */}
             <h2 className="text-2xl md:text-6xl font-bold text-center md:text-left bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-              About Me
+              {t("about.title")}
             </h2>
           </div>
           <div className="bg-muted/50 rounded-lg p-4 md:p-6">
-            <TextGenerateEffect
-              className="text-sm md:text-xl lg:text-2xl"
-              words="Hi! I'm Moch Dicky Novaldi, usually called Aldi 🚀 - a Fullstack Developer from Malang, Indonesia 🌴. With 3+ years of experience in software development, I specialize in building end-to-end web & mobile applications. Proficient in MERN Stack (Prisma, NextJs, ReactJs, Supabase), Flutter for mobile development, and Unity for game development. Always passionate about creating impactful and scalable technology solutions!"
-              inView={isInView}
-            />
+            {activeLocale === "id" ? (
+              <h1>{t("about.description")}</h1>
+            ) : (
+              <TextGenerateEffect
+                className="text-sm md:text-xl lg:text-2xl"
+                words={translations.en.about.description}
+                inView={isInView}
+              />
+            )}
           </div>
         </div>
       </div>

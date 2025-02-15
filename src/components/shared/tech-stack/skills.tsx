@@ -4,8 +4,10 @@ import { ThreeDCardDemo } from "./card";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useI18n } from "@/lib/i18n/i18n-context";
 
 export default function Skills() {
+  const { t } = useI18n();
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: false,
@@ -46,7 +48,7 @@ export default function Skills() {
           variants={itemVariants}
           className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8"
         >
-          Skills
+          {t("skills")}
         </motion.h2>
         <motion.div
           className="container mx-auto px-2 md:px-4 py-6 md:py-12"

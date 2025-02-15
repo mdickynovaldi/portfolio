@@ -105,10 +105,10 @@ export default function DetailPortfolio({
 
               {/* Tombol Aksi */}
               <div className="flex gap-4 mt-8">
-                {portfolio.demo_url ? (
+                {portfolio.live_url ? (
                   <Button asChild className="w-full">
                     <Link
-                      href={portfolio.demo_url}
+                      href={portfolio.live_url}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -118,10 +118,10 @@ export default function DetailPortfolio({
                   </Button>
                 ) : null}
 
-                {portfolio.github_url ? (
+                {portfolio.link ? (
                   <Button asChild variant="outline" className="w-full">
                     <Link
-                      href={portfolio.github_url}
+                      href={portfolio.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

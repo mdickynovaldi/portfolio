@@ -16,15 +16,15 @@ export default function PortfolioCard(item: PortfolioItem) {
         alt={item.title}
         width={400}
         height={250}
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="w-full h-36 md:h-48 object-cover"
       />
       <div className="p-3 md:p-4">
         <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 text-gray-900 dark:text-white">
           {item.title}
         </h3>
-        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-2 md:mb-4">
-          {item.description}
-        </p>
+
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
             <span

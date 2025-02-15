@@ -1,19 +1,26 @@
 import { EducationEntry } from "@/types";
+import { useI18n } from "@/lib/i18n/i18n-context";
 
-export const educationData: EducationEntry[] = [
-  {
-    institution: "STATE UNIVERSITY OF MALANG",
-    degree: "Diploma Degree in Game Animation",
-    year: "2018 - 2021",
-    location: "Malang, Indonesia",
-    gpa: 3.44,
-  },
+export const educationData = () => {
+  const { t } = useI18n();
 
-  {
-    institution: "BINUS UNIVERSITY",
-    degree: "Bachelor's Degree in Computer Science",
-    year: "2024 - 2025",
-    location: "Malang, Indonesia",
-    gpa: 3.5,
-  },
-];
+  const data: EducationEntry[] = [
+    {
+      institution: t("education.um.title"),
+      degree: t("education.um.degree"),
+      year: t("education.um.year"),
+      location: "Malang, Indonesia",
+      gpa: 3.44,
+    },
+
+    {
+      institution: t("education.binus.title"),
+      degree: t("education.binus.degree"),
+      year: t("education.binus.year"),
+      location: "Malang, Indonesia",
+      gpa: 3.5,
+    },
+  ];
+
+  return data;
+};
