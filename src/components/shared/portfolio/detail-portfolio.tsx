@@ -6,6 +6,28 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+export function Example() {
+  return (
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+    >
+      // ...
+    </Carousel>
+  );
+}
 
 export default function DetailPortfolio({
   portfolioDetail,
@@ -57,14 +79,38 @@ export default function DetailPortfolio({
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative w-full rounded-lg overflow-hidden"
           >
-            <Image
-              src={portfolio.thumbnail}
-              alt={portfolio.title}
-              width={1000}
-              height={500}
-              priority
-              className="w-full h-full object-cover"
-            />
+            {portfolio.images?.length > 0 ? (
+              <Carousel
+                className="w-full"
+                plugins={[Autoplay({ delay: 5000 })]}
+              >
+                <CarouselContent>
+                  {portfolio.images.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <Image
+                        src={image}
+                        alt={`${portfolio.title} - Image ${index + 1}`}
+                        width={1000}
+                        height={500}
+                        priority={index === 0}
+                        className="w-full h-full object-cover"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2" />
+                <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2" />
+              </Carousel>
+            ) : (
+              <Image
+                src={portfolio.thumbnail}
+                alt={portfolio.title}
+                width={1000}
+                height={500}
+                priority
+                className="w-full h-full object-cover"
+              />
+            )}
           </motion.div>
 
           {/* Deskripsi dan Tech Stack */}
